@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="items-center w-auto bg-purple-600">
+    <div className="items-center w-auto bg-purple-600 shadow-md">
       <div className="items-center justify-between w-full px-5 overflow-y-auto tflex whitespace-nowrap scroll-hidden ">
         <div className="flex flex-row flex-wrap mx-auto md:items-center md:flex-row">
           <Link to="/">

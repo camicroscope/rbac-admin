@@ -11,14 +11,21 @@ export const Card = ({ title, children }) => {
 
   return (
     <div className="mx-10 ">
-      <div className="flex flex-wrap duration-500">
-        <div className="w-full mx-auto my-4 bg-white border rounded-lg shadow-xl ">
+      <div className="flex flex-wrap">
+        <div className="w-full mx-auto my-4 bg-white border rounded-md shadow-md ">
           {/*
            * card header
            * shows only the tilte of the card when not expanded
            * shows the title and the rows when expanded
            */}
-          <Header expanded={expanded} onClick={() => setExpanded(!expanded)} />
+          <div
+            onClick={() => {
+              setExpanded(!expanded);
+            }}
+            className="duration-500 "
+          >
+            <Header expanded={expanded} />
+          </div>
 
           {/* displat the card contents only when expanded is true */}
           {expanded && (
