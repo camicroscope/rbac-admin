@@ -1,6 +1,12 @@
 import React from "react";
 
+/** import useLocation as a hook from react-router-dom */
+import { useLocation } from "react-router-dom";
+
 const Navbar = () => {
+  /** load location from  useLocation hook */
+  const { pathname } = useLocation();
+
   return (
     <div className="items-center w-auto bg-purple-600">
       <div className="items-center justify-between w-full px-5 overflow-y-auto tflex whitespace-nowrap scroll-hidden ">
@@ -13,9 +19,12 @@ const Navbar = () => {
             </div>
           </a>
 
-          <button className="w-auto px-5 py-1 my-2 ml-auto text-base font-normal border rounded-md text-white hover:bg-white hover:text-black duration-500 ">
-            Save
-          </button>
+          {/** display the save button only when on the dashboard **/}
+          {pathname === "/dashboard" ? (
+            <button className="w-auto px-5 py-1 my-2 ml-auto text-base font-normal border rounded-md text-white hover:bg-white hover:text-black duration-500 ">
+              Save
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
