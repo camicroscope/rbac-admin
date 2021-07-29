@@ -3,7 +3,7 @@ import React from "react";
 /** import useLocation as a hook from react-router-dom */
 import { useLocation, Link } from "react-router-dom";
 
-const Navbar = () => {
+export const Navbar = () => {
   /** load location from  useLocation hook */
   const { pathname } = useLocation();
 
@@ -32,5 +32,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

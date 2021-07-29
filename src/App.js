@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /** import navbar component */
-import NavBar from "./components/navbar";
+import { Navbar } from "./components/navbar";
 
 /** import all pages into application */
 import { HomePage } from "./pages/homepage";
@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <div>
-        <NavBar />
+        <Navbar />
         <Switch>
           <Route path="/dashboard">
             <DashboardPage />

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
  *
  * the components are styled using tailwind css
  */
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <section className="text-blueGray-700 ">
       <div className="container flex flex-col items-center px-5 py-8 mx-auto">
@@ -26,5 +26,3 @@ const HomePage = () => {
     </section>
   );
 };
-
-export default HomePage;
