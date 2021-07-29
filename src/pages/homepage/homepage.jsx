@@ -1,5 +1,6 @@
 /** import react and other dependencies **/
 import React from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Homepage shows the title and the sub-title for the page
@@ -15,9 +16,11 @@ const HomePage = () => {
           <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-black lg:w-1/2 lg:text-3xl title-font">
             caMicroScope
           </h1>
-          <p className="mx-auto text-base font-medium leading-relaxed text-blueGray-700 lg:w-1/2">
-            Role Configuration Interface
-          </p>
+          <Link to="/dashboard">
+            <p className="mx-auto text-base font-medium leading-relaxed text-blueGray-700 lg:w-1/2">
+              Role Configuration Interface
+            </p>
+          </Link>
         </div>
       </div>
     </section>
