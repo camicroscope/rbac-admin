@@ -1,5 +1,5 @@
 // import all pages into application
-import HomePage from "./pages/homepage/";
+import { HomePage } from "./pages/homepage";
 
 function App() {
   return (
