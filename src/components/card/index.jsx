@@ -10,7 +10,7 @@ export const Card = ({ name, allResources, roles }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="mx-10 ">
+    <div className="mx-16 ">
       <div className="flex flex-wrap">
         <div className="w-full mx-auto my-4 bg-white border rounded-md shadow-md ">
           {/*
@@ -29,7 +29,7 @@ export const Card = ({ name, allResources, roles }) => {
 
           {/* displat the card contents only when expanded is true */}
           {expanded && (
-            <div className="p-6">
+            <div className="">
               {allResources[name].map((resource) => (
                 <div className="mb-3 text-base leading-relaxed text-blueGray-500">
                   <Row title={resource} />
