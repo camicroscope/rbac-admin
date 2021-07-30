@@ -1,0 +1,66 @@
+{
+  "visitor": {
+    "middleware.loader.proxyHandler": { "read:any": ["*"] },
+    "middleware.googleAuth": { "read:any": ["*"] },
+    "middleware.img.iip.raw": { "read:any": ["*"] },
+    "middleware.data": { "read:any": ["*"] },
+    "slide": { "read:any": ["*"] },
+    "request": { "create:any": ["*"] },
+    "mark": { "read:any": ["*"] },
+    "mark.types": { "read:any": ["*"] },
+    "mark.multi": { "read:any": ["*"] },
+    "mark.spatial": { "read:any": ["*"] },
+    "mark.findMarkTypes": { "read:any": ["*"] },
+    "presetLabel": {
+      "create:any": ["*"],
+      "update:any": ["*"],
+      "delete:any": ["*"]
+    },
+    "template": { "read:any": ["*"] },
+    "heatmap": { "read:any": ["*"] },
+    "heatmap.types": { "read:any": ["*"] },
+    "heatmapEdit": { "read:any": ["*"] },
+    "log": { "read:any": ["*"], "create:any": ["*"] },
+    "freeform": { "read:any": ["*"], "create:any": ["*"] },
+    "configuration": { "read:any": ["*"] },
+    "user": { "read:any": ["*"] },
+    "user.wcido": { "read:any": ["*"] }
+  },
+  "editor": {
+    "$extend": ["visitor"],
+    "middleware.loader.login": { "read:any": ["*"] },
+    "middleware.loader.slide.delete": { "read:any": ["*"] },
+    "middleware.list": { "read:any": ["*"] },
+    "slide": { "create:any": ["*"], "delete:any": ["*"], "update:any": ["*"] },
+    "request": { "read:any": ["*"], "delete:any": ["*"] },
+    "mark": { "create:any": ["*"], "update:any": ["*"], "delete:any": ["*"] },
+    "template": {
+      "create:any": ["*"],
+      "update:any": ["*"],
+      "delete:any": ["*"]
+    },
+    "heatmap": {
+      "create:any": ["*"],
+      "update:any": ["*"],
+      "delete:any": ["*"]
+    },
+    "heatmapEdit": {
+      "create:any": ["*"],
+      "update:any": ["*"],
+      "delete:any": ["*"]
+    },
+    "log": { "delete:any": ["*"], "update:any": ["*"] },
+    "freeform": { "update:any": ["*"], "delete:any": ["*"] },
+    "configuration": {
+      "create:any": ["*"],
+      "delete:any": ["*"],
+      "update:any": ["*"]
+    },
+    "user": { "create:any": ["*"], "delete:any": ["*"], "update:any": ["*"] },
+    "workbench.uploadDataset": { "read:any": ["*"] },
+    "workbench.trainModel": { "read:any": ["*"] },
+    "workbench.deleteUserData": { "read:any": ["*"] },
+    "workbench.modelDownload": { "read:any": ["*"] }
+  },
+  "admin": { "$extend": ["editor"] }
+}

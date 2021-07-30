@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Row } from "./row";
 import { Header } from "./header";
 
-export const Card = ({ title, children }) => {
+export const Card = ({ name, allResources, roles }) => {
   /** using state to expand the card */
   const [expanded, setExpanded] = useState(false);
 
@@ -24,18 +24,17 @@ export const Card = ({ title, children }) => {
             }}
             className="duration-500 "
           >
-            <Header expanded={expanded} />
+            <Header title={name} expanded={expanded} roles={roles} />
           </div>
 
           {/* displat the card contents only when expanded is true */}
           {expanded && (
             <div className="p-6">
-              <div className="mb-3 text-base leading-relaxed text-blueGray-500">
-                <Row title="awesome" />
-                <Row title="awesome" />
-                <Row title="awesome" />
-                <Row title="awesome" />
-              </div>
+              {allResources[name].map((resource) => (
+                <div className="mb-3 text-base leading-relaxed text-blueGray-500">
+                  <Row title={resource} />
+                </div>
+              ))}
             </div>
           )}
         </div>
