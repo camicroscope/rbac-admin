@@ -28,7 +28,7 @@ export const DashboardPage = () => {
     <div>
       {Object.keys(resources).map((resourceName) => {
         return (
-          <Card name={resourceName} allResources={resources} roles={roles} />
+          <Card name={resourceName} allResources={resources} roles={roles} key={resourceName} />
         );
       })}
     </div>

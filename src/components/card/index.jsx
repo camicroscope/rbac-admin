@@ -32,7 +32,7 @@ export const Card = ({ name, allResources, roles }) => {
             <div className="">
               {allResources[name].map((resource) => (
                 <div className="mb-3 text-base leading-relaxed text-blueGray-500">
-                  <Row title={resource} />
+                  <Row title={resource} key={resource} />
                 </div>
               ))}
             </div>
