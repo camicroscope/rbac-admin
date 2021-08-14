@@ -4,7 +4,7 @@
  * allows easy updating via state management techniques
  */
 const { consolidatedRulesByRole } = require("./bench");
-const { allResourcesMapping } = require("../../../transformers");
+const { allResourcesMapping } = require("./transformers");
 
 const matrixToStateFormat = (data) => {
   const rulesCategorizedByRole = consolidatedRulesByRole(data);
@@ -22,7 +22,7 @@ const matrixToStateFormat = (data) => {
     });
   });
 
-  return resources;
+  return { resources, roles };
 };
 
 module.exports = { matrixToStateFormat };

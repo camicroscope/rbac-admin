@@ -60,8 +60,7 @@ const getListOfResources = (ruleMappings) => {
 };
 
 const allResourcesMapping = (data) => {
-  const parsedData = JSON.parse(data);
-  return getListOfResources(parsedData);
+  return getListOfResources(data);
 };
 
 module.exports = { allResourcesMapping };

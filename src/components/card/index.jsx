@@ -9,6 +9,9 @@ export const Card = ({ name, allResources, roles }) => {
   /** using state to expand the card */
   const [expanded, setExpanded] = useState(false);
 
+  const operationNames = Object.keys(allResources[name]);
+  console.log(operationNames);
+
   return (
     <div className="mx-16 ">
       <div className="flex flex-wrap">
@@ -30,9 +33,14 @@ export const Card = ({ name, allResources, roles }) => {
           {/* displat the card contents only when expanded is true */}
           {expanded && (
             <div className="">
-              {allResources[name].map((resource) => (
+              {operationNames.map((operation) => (
                 <div className="mb-3 text-base leading-relaxed text-blueGray-500">
-                  <Row title={resource} key={resource} />
+                  <Row
+                    title={operation}
+                    key={operation}
+                    resource={name}
+                    allResources={allResources}
+                  />
                 </div>
               ))}
             </div>
