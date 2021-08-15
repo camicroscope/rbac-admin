@@ -28,7 +28,7 @@ export const transformToServerFormat = (matrix) => {
           // only reads allowed
           allRulesList.push({
             role,
-            resource: `${resource}:${operation}`,
+            resource: `${resource}.${operation}`,
             action: `read:any`,
             attributes: ["*"],
           });

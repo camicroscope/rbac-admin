@@ -5,8 +5,9 @@ import React, { useEffect, useState } from "react";
 import { Card } from "../../components/card";
 
 /** load services */
-import { LoadRules } from "../../services/network";
+import { LoadRules, UpdateRules } from "../../services/network";
 import { matrixToStateFormat } from "../../services/rules";
+import { transformToServerFormat } from "../../services/rules/serverFormat";
 
 export const DashboardPage = () => {
   /** store the rules in state */
@@ -24,18 +25,31 @@ export const DashboardPage = () => {
       resources.middleware.loader = [...new Set(resources.middleware.loader)];
       setRoles(roles);
       setResources(resources);
-      console.log(JSON.stringify(resources));
     });
   }, []);
 
   // to update the global storage of resources
   const updateGlobalState = (resource, operation, newRoleArray) => {
-    console.log({ resource, operation, newRoleArray });
     const currentSnapShot = resources;
     currentSnapShot[resource][operation] = [...newRoleArray];
     setResources(currentSnapShot);
+  };
 
-    console.log({ currentSnapShot, resources });
+  // method to send new map to server
+  const saveChanges = () => {
+    const serverFormat = transformToServerFormat(resources);
+    try {
+      UpdateRules(serverFormat)
+        .then((response) => {
+          console.log(response);
+          alert(response);
+        })
+        .catch((e) => {
+          console.error(`Error updating rules`, e);
+        });
+    } catch (e) {
+      console.error(`Error updating rules`, e);
+    }
   };
 
   return (
@@ -51,6 +65,17 @@ export const DashboardPage = () => {
           />
         );
       })}
+
+      <div class="flex">
+        <div class="m-auto">
+          <button
+            onClick={saveChanges}
+            className="w-32 px-5 py-1 my-10 ml-auto text-base font-normal border rounded-md border-purple-500 shadow-sm hover:shadow-lg text-purple-600 hover:bg-purple-600 hover:text-white duration-500 "
+          >
+            Save
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
