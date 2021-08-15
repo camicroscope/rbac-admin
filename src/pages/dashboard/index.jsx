@@ -20,10 +20,24 @@ export const DashboardPage = () => {
     console.log("hits");
     LoadRules().then((compressedRules) => {
       const { resources, roles } = matrixToStateFormat(compressedRules);
+
+      // quick fix
+      resources.middleware.loader = [...new Set(resources.middleware.loader)];
       setRoles(roles);
       setResources(resources);
+      console.log(resources);
     });
   }, []);
+
+  // to update the global storage of resources
+  const updateGlobalState = (resource, operation, newRoleArray) => {
+    console.log({ resource, operation, newRoleArray });
+    const currentSnapShot = resources;
+    currentSnapShot[resource][operation] = [...newRoleArray];
+    setResources(currentSnapShot);
+
+    console.log({ currentSnapShot, resources });
+  };
 
   return (
     <div>
@@ -33,6 +47,7 @@ export const DashboardPage = () => {
             name={resourceName}
             allResources={resources}
             roles={roles}
+            remote={updateGlobalState}
             key={resourceName}
           />
         );

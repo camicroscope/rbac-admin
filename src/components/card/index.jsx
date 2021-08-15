@@ -5,12 +5,10 @@ import React, { useState } from "react";
 import { Row } from "./row";
 import { Header } from "./header";
 
-export const Card = ({ name, allResources, roles }) => {
+export const Card = ({ name, allResources, roles, remote }) => {
   /** using state to expand the card */
   const [expanded, setExpanded] = useState(false);
-
   const operationNames = Object.keys(allResources[name]);
-  console.log(operationNames);
 
   return (
     <div className="mx-16 ">
@@ -37,9 +35,10 @@ export const Card = ({ name, allResources, roles }) => {
                 <div className="mb-3 text-base leading-relaxed text-blueGray-500">
                   <Row
                     title={operation}
-                    key={operation}
+                    key={`${name}:${operation}`}
                     resource={name}
                     allResources={allResources}
+                    remote={remote}
                   />
                 </div>
               ))}
