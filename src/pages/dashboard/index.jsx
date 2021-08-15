@@ -17,7 +17,6 @@ export const DashboardPage = () => {
 
   /** load the rules */
   useEffect(() => {
-    console.log("hits");
     LoadRules().then((compressedRules) => {
       const { resources, roles } = matrixToStateFormat(compressedRules);
 
@@ -25,7 +24,7 @@ export const DashboardPage = () => {
       resources.middleware.loader = [...new Set(resources.middleware.loader)];
       setRoles(roles);
       setResources(resources);
-      console.log(resources);
+      console.log(JSON.stringify(resources));
     });
   }, []);
 
