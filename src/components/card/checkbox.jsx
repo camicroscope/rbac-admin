@@ -4,8 +4,6 @@ export const CheckBox = ({ role, allowedRoles, resource, operation, fx }) => {
   const [active, setActive] = useState(allowedRoles.includes(role));
 
   const handleChange = (e) => {
-    const { value } = e.target;
-
     // when user moving from checked box to unchecked
     if (active) {
       allowedRoles.push(role);
