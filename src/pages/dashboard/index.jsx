@@ -25,6 +25,7 @@ export const DashboardPage = () => {
       resources.middleware.loader = [...new Set(resources.middleware.loader)];
       setRoles(roles);
       setResources(resources);
+      console.log("All roles debug :", JSON.stringify(resources));
     });
   }, []);
 

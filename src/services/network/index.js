@@ -2,14 +2,19 @@ import axios from "axios";
 
 import { config } from "../../config";
 
-/** make a GET request to the API to fetch all rules related to RBAC */
+/**
+ * To load the current configuration of access control from server
+ */
 export const LoadRules = async () => {
-  const { data: rules } = await axios.get(config.server("matrix.json"));
+  const { data: rules } = await axios.get(config.server("roles"));
   return rules;
 };
 
+/**
+ * To save the current configuration of access control on srver
+ */
 export const UpdateRules = async (newRules) => {
   const payload = { rules: newRules };
-  const { data } = await axios.post(config.server("/roles/update"), payload);
+  const { data } = await axios.post(config.server("roles"), payload);
   return data;
 };
