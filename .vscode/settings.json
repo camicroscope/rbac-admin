@@ -1,4 +1,4 @@
 {
-    "github.copilot.autocomplete.enable": true,
-    "github.copilot.list.count": 5
+  "github.copilot.autocomplete.enable": true,
+  "github.copilot.list.count": 5
 }

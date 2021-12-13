@@ -2,25 +2,25 @@
  * This file transforms the incoming raw data into a falt list based on
  * resources and possible operations
  */
-const getListOfResources = (ruleMappings) => {
+const getListOfResources = ruleMappings => {
   const resources = {};
   const resourcesAlternateFormat = {};
 
   const roles = Object.keys(ruleMappings);
 
   // get roles for each roles
-  roles.forEach((role) => {
+  roles.forEach(role => {
     const individualMappings = Object.keys(ruleMappings[role]);
 
     // loop through all individual mappings to get opertaion types
-    individualMappings.forEach((resource) => {
-      if (resource === "$extend") {
+    individualMappings.forEach(resource => {
+      if (resource === '$extend') {
         return;
       }
 
       //   case of non standard CRUD operations
-      if (resource.indexOf(".") !== -1) {
-        const [category, operation] = resource.split(".");
+      if (resource.indexOf('.') !== -1) {
+        const [category, operation] = resource.split('.');
         if (resources[category] === undefined) {
           resources[category] = [{ name: operation, allowed: [] }];
           resourcesAlternateFormat[category] = {
@@ -38,8 +38,8 @@ const getListOfResources = (ruleMappings) => {
 
       //   case of standard CRUD operations
       const operations = Object.keys(ruleMappings[role][resource]);
-      operations.forEach((operation) => {
-        const [firstPart] = operation.split(":");
+      operations.forEach(operation => {
+        const [firstPart] = operation.split(':');
         if (resources[resource] === undefined) {
           resources[resource] = [{ name: firstPart, allowed: [] }];
           resourcesAlternateFormat[resource] = {
@@ -59,8 +59,6 @@ const getListOfResources = (ruleMappings) => {
   return { roles, resources, resourcesAlternateFormat };
 };
 
-const allResourcesMapping = (data) => {
-  return getListOfResources(data);
-};
+const allResourcesMapping = data => getListOfResources(data);
 
 module.exports = { allResourcesMapping };
