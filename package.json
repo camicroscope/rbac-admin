@@ -19,7 +19,9 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "lint": "eslint --fix --ignore-path .gitignore \"./src/*.{js,jsx}\"",
+    "format": "prettier --write \"{*,**/*}.{js,jsx,json,yml,yaml,md}\""
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +51,20 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-react": "^7.16.0",
     "autoprefixer": "^9.8.6",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
     "postcss": "^7.0.36",
