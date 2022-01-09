@@ -1,7 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 
-function NotFoundPage() {
+export const NotFoundPage=()=> {
   const history = useHistory()
     return (
 <div className="flex items-center justify-center w-full min-h-screen bg-gray-100 text-gray-700">
@@ -21,4 +21,3 @@ function NotFoundPage() {
     )
 }
 
-export default NotFoundPage

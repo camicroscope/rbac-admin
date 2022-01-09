@@ -6,7 +6,7 @@ import { Navbar } from "./components/navbar";
 /** import all pages into application */
 import { HomePage } from "./pages/homepage";
 import { DashboardPage } from "./pages/dashboard";
-import NotFoundPage from "./pages/NotFound";
+import { NotFoundPage } from "./pages/NotFound";
 
 function App() {
   return (
