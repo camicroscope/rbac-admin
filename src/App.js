@@ -6,6 +6,7 @@ import { Navbar } from "./components/navbar";
 /** import all pages into application */
 import { HomePage } from "./pages/homepage";
 import { DashboardPage } from "./pages/dashboard";
+import { NotFoundPage } from "./pages/NotFound";
 
 function App() {
   return (
@@ -13,12 +14,13 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          <Route path="/dashboard">
-            <DashboardPage />
-          </Route>
-          <Route path="/">
+          <Route exact path="/">
             <HomePage />
           </Route>
+          <Route exact path="/dashboard">
+            <DashboardPage />
+          </Route>
+          <Route component={NotFoundPage} />
         </Switch>
       </div>
     </Router>
