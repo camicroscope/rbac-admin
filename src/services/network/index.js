@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
-import { config } from "../../config";
+import { config } from '../../config';
 
 /**
  * To load the current configuration of access control from server
  */
 export const LoadRules = async () => {
-  const { data: rules } = await axios.get(config.server("roles"));
+  const { data: rules } = await axios.get(config.server('roles'));
   return rules;
 };
 
@@ -15,6 +15,6 @@ export const LoadRules = async () => {
  */
 export const UpdateRules = async (newRules) => {
   const payload = { rules: newRules };
-  const { data } = await axios.post(config.server("roles"), payload);
+  const { data } = await axios.post(config.server('roles'), payload);
   return data;
 };

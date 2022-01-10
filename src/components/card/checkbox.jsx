@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 
 export const CheckBox = ({ role, allowedRoles, resource, operation, fx }) => {
   const [active, setActive] = useState(allowedRoles.includes(role));
@@ -12,6 +12,7 @@ export const CheckBox = ({ role, allowedRoles, resource, operation, fx }) => {
     } else {
       // when a role is given new access
       allowedRoles.push(role);
+      // eslint-disable-next-line no-param-reassign
       allowedRoles = [...new Set(allowedRoles)];
       fx(resource, operation, allowedRoles);
     }

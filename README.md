@@ -32,8 +32,6 @@ npm run build
 
 This project uses TailWind CSS as a utility framework for styles. More details about the Tailwind CSS framework can be found [here](https://tailwindcss.com/).
 
-
-
 # Admin Panel
 
 > HomePage

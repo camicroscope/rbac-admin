@@ -28,13 +28,13 @@ const firstOrderRules = (x) => {
      * combines the resources and operations with a period.
      */
     Object.keys(rightsOfGivenRole).forEach((resource) => {
-      if (resource === "$extend") {
+      if (resource === '$extend') {
         return;
       }
 
       /** a non standard operation name contains a period. */
-      if (resource.indexOf(".") !== -1) {
-        const [category, operation] = resource.split(".");
+      if (resource.indexOf('.') !== -1) {
+        const [category, operation] = resource.split('.');
         rulesList.push({
           role,
           standard: false,
@@ -50,7 +50,7 @@ const firstOrderRules = (x) => {
       const givenRights = Object.keys(allRightsObject);
       givenRights.forEach((rightName) => {
         /** to trim 'read' from 'read:any' */
-        const [trimmedRightName] = rightName.split(":");
+        const [trimmedRightName] = rightName.split(':');
         rulesList.push({
           role,
           standard: true,

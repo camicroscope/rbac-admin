@@ -3,8 +3,8 @@
  * a format that can be easily rendered in form of components and
  * allows easy updating via state management techniques
  */
-const { consolidatedRulesByRole } = require("./bench");
-const { allResourcesMapping } = require("./transformers");
+const { consolidatedRulesByRole } = require('./bench');
+const { allResourcesMapping } = require('./transformers');
 
 /**
  * Final consumable function to convert the matrix to a format that can

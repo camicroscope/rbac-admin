@@ -1,9 +1,9 @@
 /** import react and other dependencies */
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
+import { Header } from './header';
 /** import peer components */
-import { Row } from "./row";
-import { Header } from "./header";
+import { Row } from './row';
 
 export const Card = ({ name, allResources, roles, remote }) => {
   /** using state to expand the card */
@@ -32,10 +32,12 @@ export const Card = ({ name, allResources, roles, remote }) => {
           {expanded && (
             <div className="">
               {operationNames.map((operation) => (
-                <div className="mb-3 text-base leading-relaxed text-blueGray-500">
+                <div
+                  key={`${name}:${operation}`}
+                  className="mb-3 text-base leading-relaxed text-blueGray-500"
+                >
                   <Row
                     title={operation}
-                    key={`${name}:${operation}`}
                     resource={name}
                     allResources={allResources}
                     remote={remote}

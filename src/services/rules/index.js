@@ -6,6 +6,6 @@
  *
  * @author: Yash Kumar Verma <yk.verma2000@gmail.com>
  */
-import { matrixToStateFormat } from "./patching";
+import { matrixToStateFormat } from './patching';
 
 export { matrixToStateFormat };

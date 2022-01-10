@@ -12,7 +12,7 @@ export const transformToServerFormat = (matrix) => {
     const operations = Object.keys(matrix[resource]);
 
     operations.forEach((operation) => {
-      const standardOperations = ["create", "read", "update", "delete"];
+      const standardOperations = ['create', 'read', 'update', 'delete'];
       const roles = matrix[resource][operation];
 
       roles.forEach((role) => {
@@ -22,7 +22,7 @@ export const transformToServerFormat = (matrix) => {
             role,
             resource,
             action: `${operation}:any`,
-            attributes: ["*"],
+            attributes: ['*'],
           });
         } else {
           // only reads allowed
@@ -30,7 +30,7 @@ export const transformToServerFormat = (matrix) => {
             role,
             resource: `${resource}.${operation}`,
             action: `read:any`,
-            attributes: ["*"],
+            attributes: ['*'],
           });
         }
       });
