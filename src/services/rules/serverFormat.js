@@ -4,18 +4,18 @@
  * client as the server is responsible for the storage and initialization of
  * the access control module.
  */
-export const transformToServerFormat = matrix => {
+export const transformToServerFormat = (matrix) => {
   const allRulesList = [];
   const resources = Object.keys(matrix);
 
-  resources.forEach(resource => {
+  resources.forEach((resource) => {
     const operations = Object.keys(matrix[resource]);
 
-    operations.forEach(operation => {
+    operations.forEach((operation) => {
       const standardOperations = ['create', 'read', 'update', 'delete'];
       const roles = matrix[resource][operation];
 
-      roles.forEach(role => {
+      roles.forEach((role) => {
         if (standardOperations.includes(operation)) {
           // generic items allowed
           allRulesList.push({

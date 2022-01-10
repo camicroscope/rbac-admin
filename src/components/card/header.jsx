@@ -10,7 +10,7 @@ export const Header = ({ expanded, roles, title }) => (
         <div className="font-bold w-1/6">{title}</div>
 
         {/* display the roles only when the card is expanded, i.e. expanded = true */}
-        {expanded && roles.map(role => <div className="ml-auto">{role}</div>)}
+        {expanded && roles.map((role) => <div className="ml-auto">{role}</div>)}
       </div>
     </div>
   </div>

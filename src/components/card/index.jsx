@@ -31,7 +31,7 @@ export const Card = ({ name, allResources, roles, remote }) => {
           {/* displat the card contents only when expanded is true */}
           {expanded && (
             <div className="">
-              {operationNames.map(operation => (
+              {operationNames.map((operation) => (
                 <div
                   key={`${name}:${operation}`}
                   className="mb-3 text-base leading-relaxed text-blueGray-500"

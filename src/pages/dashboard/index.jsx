@@ -18,7 +18,7 @@ export const DashboardPage = () => {
 
   /** load the rules */
   useEffect(() => {
-    LoadRules().then(compressedRules => {
+    LoadRules().then((compressedRules) => {
       const { resources, roles } = matrixToStateFormat(compressedRules);
 
       // quick fix
@@ -41,11 +41,11 @@ export const DashboardPage = () => {
     const serverFormat = transformToServerFormat(resources);
     try {
       UpdateRules(serverFormat)
-        .then(response => {
+        .then((response) => {
           // console.log(response);
           alert(response);
         })
-        .catch(e => {
+        .catch((e) => {
           console.error(`Error updating rules`, e);
         });
     } catch (e) {
@@ -55,7 +55,7 @@ export const DashboardPage = () => {
 
   return (
     <div>
-      {Object.keys(resources).map(resourceName => (
+      {Object.keys(resources).map((resourceName) => (
         <Card
           name={resourceName}
           allResources={resources}

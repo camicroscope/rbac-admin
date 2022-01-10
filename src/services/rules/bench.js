@@ -2,14 +2,14 @@
  * This file transforms the input raw matrix obtaied from the backed
  * into a structured and verbose object based on roles and resources
  */
-const firstOrderRules = x => {
+const firstOrderRules = (x) => {
   // get the roles registered on the server
   const roles = Object.keys(x);
 
   // list to store the computed rules
   const rulesList = [];
 
-  roles.forEach(role => {
+  roles.forEach((role) => {
     const rightsOfGivenRole = x[role];
 
     /**
@@ -27,7 +27,7 @@ const firstOrderRules = x => {
      * does not have dedicated apis. For these, a new notion is used which
      * combines the resources and operations with a period.
      */
-    Object.keys(rightsOfGivenRole).forEach(resource => {
+    Object.keys(rightsOfGivenRole).forEach((resource) => {
       if (resource === '$extend') {
         return;
       }
@@ -48,7 +48,7 @@ const firstOrderRules = x => {
 
       /** operations are also called rights */
       const givenRights = Object.keys(allRightsObject);
-      givenRights.forEach(rightName => {
+      givenRights.forEach((rightName) => {
         /** to trim 'read' from 'read:any' */
         const [trimmedRightName] = rightName.split(':');
         rulesList.push({
@@ -77,11 +77,11 @@ const firstOrderRules = x => {
  * Note that it returns an ordered array of parents. This is mainly used
  * to merge the rule arrays of the parents and the child.
  */
-const getHierchy = x => {
+const getHierchy = (x) => {
   const roles = Object.keys(x);
   const hierchy = {};
 
-  roles.forEach(role => {
+  roles.forEach((role) => {
     if (hierchy[role] === undefined && x[role].$extend !== undefined) {
       hierchy[role] = x[role].$extend;
     } else {
@@ -101,7 +101,7 @@ const getHierchy = x => {
 const categorizeRulesBasedOnRoles = (rulesList, hierchy) => {
   const roleWiseRuleList = {};
 
-  rulesList.forEach(rulerow => {
+  rulesList.forEach((rulerow) => {
     if (roleWiseRuleList[rulerow.role] === undefined) {
       roleWiseRuleList[rulerow.role] = [];
     }
@@ -119,7 +119,7 @@ const roleResolver = (roleBasedRules, hierchy) => {
   const roles = Object.keys(hierchy);
   const consolidatedRules = {};
 
-  roles.forEach(role => {
+  roles.forEach((role) => {
     const ruleArray = [];
     if (roleBasedRules[role] === undefined) {
       roleBasedRules[role] = [];
@@ -129,7 +129,7 @@ const roleResolver = (roleBasedRules, hierchy) => {
     ruleArray.push(...roleBasedRules[role]);
 
     if (hierchy[role].length !== 0) {
-      hierchy[role].forEach(parent => {
+      hierchy[role].forEach((parent) => {
         ruleArray.push(...consolidatedRules[parent]);
       });
     }
@@ -140,7 +140,7 @@ const roleResolver = (roleBasedRules, hierchy) => {
   return consolidatedRules;
 };
 
-const consolidatedRulesByRole = data => {
+const consolidatedRulesByRole = (data) => {
   const rulesList = firstOrderRules(data);
   const hierchy = getHierchy(data);
   const rulesBasedOnRoles = categorizeRulesBasedOnRoles(rulesList, hierchy);

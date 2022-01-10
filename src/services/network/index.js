@@ -13,7 +13,7 @@ export const LoadRules = async () => {
 /**
  * To save the current configuration of access control on srver
  */
-export const UpdateRules = async newRules => {
+export const UpdateRules = async (newRules) => {
   const payload = { rules: newRules };
   const { data } = await axios.post(config.server('roles'), payload);
   return data;
